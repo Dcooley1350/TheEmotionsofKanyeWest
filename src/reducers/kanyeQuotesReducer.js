@@ -1,7 +1,11 @@
 export default (state = {}, action) => {
     let newState;
-    switch(action.type){
+    const { type, KWestState } = action;
+    switch(type){
         case 'KANYE_MOOD':
-            newState = Object.assign({}, state,)
+            newState = Object.assign({}, state, {KWestMoodAndQuotes: KWestState});
+            return newState;
+        default:
+            return state;
     }
 }

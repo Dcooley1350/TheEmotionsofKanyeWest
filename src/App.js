@@ -1,19 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
+import { kanyeMood } from './actions';
 
-function App() {
-  function handleButtonClick(){
 
+function App(props) {
+  function handleButtonClick(event){
+    console.log(props);
+    event.preventDefault();
+    props.dispatch(kanyeMood())
   }
   return (
     <div className="App">
       <h1>Check on Kanye's Mood!?</h1>
-      <button onclick={}></button>
+      <button onClick={handleButtonClick}>what the what?</button>
     </div>
   );
 }
 
-const mapStateToProps = 
-export default connect(App);
+const mapStateToProps = state => ({
+  kanyeQuotes: state.kanyeQuotes
+});
+
+export default connect(mapStateToProps)(App);
